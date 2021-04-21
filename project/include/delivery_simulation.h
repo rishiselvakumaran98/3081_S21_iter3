@@ -24,6 +24,7 @@
 #include "RobotFactory.h"
 #include "IEntityFactory.h"
 #include "ISubject.h"
+#include "SingletonCSV.h"
 
 namespace csci3081 {
 
@@ -171,6 +172,8 @@ class DeliverySimulation : public IDeliverySystem {
   int schedule_count = 0;
   int drone_rescheduleCount = 0;
   int robot_rescheduleCount = 0;
+  std::vector<std::string> files;
+  float dt_temp = 0;
 };
 
 }  // namespace csci3081

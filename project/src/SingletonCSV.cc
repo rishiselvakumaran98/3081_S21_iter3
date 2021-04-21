@@ -40,4 +40,24 @@ void SingletonCSV::helper_add_time(std::string name, float t) {
 				file << t << ", "; //write the time to the file 
 			file.close();
 		}//close function
+
+void SingletonCSV::ClearFiles(std::vector<std::string> filenames) {
+	for (int i = 0; i < filenames.size(); i++) {
+		CleanFile(filenames.at(i));
+	}// close for loop
+} //close function  
+
+void SingletonCSV::AddLineToFiles(std::vector<std::string> filenames) {
+
+	for (int i = 0; i < filenames.size(); i++) {
+		helper_add_nl( filenames.at(i) );
+	}//close for loop
+}//close function
+
+void SingletonCSV::AddTimeToFiles(std::vector<std::string> filenames, float t) {
+	for (int i = 0; i < filenames.size(); i++) {
+		helper_add_time(filenames.at(i), t);
+	}//close for loop
+}//close function 
+
 } //close namespace

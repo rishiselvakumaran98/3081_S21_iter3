@@ -7,11 +7,13 @@ namespace csci3081 {
 
 DeliverySimulation::DeliverySimulation() {
 	comp_fact = CompositeFactory();
-
 	AddFactory(new DroneFactory());
 	AddFactory(new RobotFactory());
 	AddFactory(new PackageFactory());
 	AddFactory(new CustomerFactory());
+	SingletonCSV* sing = SingletonCSV::GetSingleton();
+		files.push_back("file1.csv"); //I added this just to test that the files are being created 
+	sing->ClearFiles(files);
 }
 
 DeliverySimulation::~DeliverySimulation() {}
@@ -106,6 +108,8 @@ const std::vector<IEntity*>& DeliverySimulation::GetEntities() const { return en
 
 void DeliverySimulation::Update(float dt) {
 	ActualScheduleDelivery();
+	SingletonCSV* sing = SingletonCSV::GetSingleton();
+	sing->AddTimeToFiles(files, dt_temp);
 	for (int i = 0; i < entities_.size(); i++) {
 		const picojson::object& temp = entities_[i]->GetDetails();
 		if (JsonHelper::GetString(temp, "type") == "drone") {
@@ -133,6 +137,8 @@ void DeliverySimulation::Update(float dt) {
 			}
 		} //close type check for entity
 	} //close for loop
+	dt_temp+=dt;
+	sing->AddLineToFiles(files);
 } //end function
 
 // DO NOT MODIFY THE FOLLOWING UNLESS YOU REALLY KNOW WHAT YOU ARE DOING
