@@ -13,16 +13,16 @@ SingletonCSV* SingletonCSV::GetSingleton() {
 	} //close else 
 }//close function
 
-void SingletonCSV::WriteToCSV(std::string name, float num) {
+void SingletonCSV::WriteToCSV(std::string filename, float num) {
 		std::ofstream file;
-		file.open(name, std::ios::out|std::ios::app); //this is a output file and all operations are output are performed at the end of the file
+		file.open(filename, std::ios::out|std::ios::app); //this is a output file and all operations are output are performed at the end of the file
 			file << num << ", "; //write the float and a comma to the file 
 		file.close();
 } //close function
 
-void SingletonCSV::helper_add_nl(std::string name) {
+void SingletonCSV::helper_add_nl(std::string filename) {
 			std::ofstream file;
-			file.open(name, std::ios::out|std::ios::app); //this is a output file and all operations are output are performed at the end of the file
+			file.open(filename, std::ios::out|std::ios::app); //this is a output file and all operations are output are performed at the end of the file
 				file << "\n"; //write a new line character
 			file.close();
 }
@@ -34,9 +34,9 @@ void SingletonCSV::CleanFile(std::string filename) {
 	file.close(); //closes the file
 }
 
-void SingletonCSV::helper_add_time(std::string name, float t) {
+void SingletonCSV::helper_add_time(std::string filename, float t) {
 			std::ofstream file;
-			file.open(name, std::ios::out|std::ios::app); //this is a output file and all operations are output are performed at the end of the file
+			file.open(filename, std::ios::out|std::ios::app); //this is a output file and all operations are output are performed at the end of the file
 				file << t << ", "; //write the time to the file 
 			file.close();
 		}//close function

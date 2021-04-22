@@ -5,29 +5,29 @@
 #include <iostream>
 #include <vector>
 namespace csci3081 { 
-class SingletonCSV {
-	private:
-		static SingletonCSV* csvptr;
-		SingletonCSV() {
-		}//close constructor
+	class SingletonCSV {
+		private:
+			static SingletonCSV* csvptr;
+			SingletonCSV() {
+			}//close constructor
 
-	public:
-		~SingletonCSV() {
-			delete csvptr;;
-		}
+		public:
+			~SingletonCSV() {
+				delete csvptr;;
+			}
 
 
-//this function checks if csvptr is null, if it is creates a new instance of singletonCSV and assigns it to csvptr. If it is not null, it returns csvptr.
-				static SingletonCSV* GetSingleton();
+			//this function checks if csvptr is null, if it is creates a new instance of singletonCSV and assigns it to csvptr. If it is not null, it returns csvptr.
+			static SingletonCSV* GetSingleton();
 
-				void WriteToCSV(std::string name, float num);
-				void helper_add_nl(std::string name);
-				void helper_add_time(std::string name, float time);
-				void CleanFile(std::string filename);
-				void ClearFiles(std::vector<std::string> filenames);
-				void AddLineToFiles(std::vector<std::string> filenames);
-				void AddTimeToFiles(std::vector<std::string> filenames, float t);
-}; //close class
+			void WriteToCSV(std::string filename, float num);
+			void helper_add_nl(std::string filename);
+			void helper_add_time(std::string filename, float time);
+			void CleanFile(std::string filename);
+			void ClearFiles(std::vector<std::string> filenames);
+			void AddLineToFiles(std::vector<std::string> filenames);
+			void AddTimeToFiles(std::vector<std::string> filenames, float t);
+	}; //close class
 
 }//close namespace
 
