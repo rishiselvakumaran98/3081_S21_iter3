@@ -365,6 +365,20 @@ Then,
     <iframe width="500" height="400" frameborder="0" scrolling="no" src="//plotly.com/~RishiBoy98/13.embed"></iframe>
     \endhtmlonly
 
+    \htmlonly
+    <iframe width="500" height="400" frameborder="0" scrolling="no" src="//plotly.com/~RishiBoy98/14.embed"></iframe>
+    \endhtmlonly
+
+    \htmlonly
+    <iframe width="500" height="400" frameborder="0" scrolling="no" src="//plotly.com/~RishiBoy98/15.embed"></iframe>
+    \endhtmlonly
+
+    \htmlonly
+    <iframe width="500" height="400" frameborder="0" scrolling="no" src="//plotly.com/~RishiBoy98/16.embed"></iframe>
+    \endhtmlonly
+
+
+
 */  
 
 
