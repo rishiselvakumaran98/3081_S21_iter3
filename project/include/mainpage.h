@@ -89,11 +89,11 @@ Then,
  - Open up Firefox and browse to http://127.0.0.1:8081/ 
 
 
-
 * \section routes_sec Designing and Implementing the different routes
 
   In the graphical simulation, we implemented different routes for the drone entity using the Strategy Pattern. 
   The three routes for the drone include the smart, Beeline and Parabolic. 
+  
 
   \subsection e Strategy Pattern for the Drone Paths
 
@@ -341,6 +341,30 @@ Then,
       took a long time to finish up. I believe the Robot class took around 7 hours combined.
       I also created a new UML diagram for our joined group iteration, and included every new feature we added to the project.
 
-*/
+    \htmlonly
+      <iframe width="500" height="400" frameborder="0" scrolling="no" src="//plotly.com/~RishiBoy98/9.embed"></iframe>
+    \endhtmlonly
+
+    \htmlonly
+    <iframe width="500" height="400" frameborder="0" scrolling="no" src="//plotly.com/~RishiBoy98/8.embed"></iframe>
+    \endhtmlonly
+
+    \htmlonly
+    <iframe width="500" height="400" frameborder="0" scrolling="no" src="//plotly.com/~RishiBoy98/10.embed"></iframe>
+    \endhtmlonly
+
+    \htmlonly
+    <iframe width="500" height="400" frameborder="0" scrolling="no" src="//plotly.com/~RishiBoy98/11.embed"></iframe>
+    \endhtmlonly
+
+    \htmlonly
+    <iframe width="500" height="400" frameborder="0" scrolling="no" src="//plotly.com/~RishiBoy98/12.embed"></iframe>
+    \endhtmlonly
+
+    \htmlonly
+    <iframe width="500" height="400" frameborder="0" scrolling="no" src="//plotly.com/~RishiBoy98/13.embed"></iframe>
+    \endhtmlonly
+
+*/  
 
 

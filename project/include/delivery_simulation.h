@@ -163,17 +163,15 @@ class DeliverySimulation : public IDeliverySystem {
   std::vector<IEntity*> packages_array;
   std::vector<IEntity*> customer_array;
   const IGraph* graph_;
-    CompositeFactory comp_fact;
+  CompositeFactory comp_fact;
 	int Id = -1;
-//	  DroneFactory dFact;
-//	    CustomerFactory cFact;
-//		  PackageFactory pFact;
 	ISubject isub;
   int schedule_count = 0;
   int drone_rescheduleCount = 0;
   int robot_rescheduleCount = 0;
   std::vector<std::string> files;
   float dt_temp = 0;
+  SingletonCSV* sing;
 };
 
 }  // namespace csci3081

@@ -14,32 +14,46 @@ namespace csci3081 {
 	}//close function
 
 	void SingletonCSV::WriteToCSV(std::string filename, float num) {
-			std::ofstream file;
-			file.open(filename, std::ios::out|std::ios::app); //this is a output file and all operations are output are performed at the end of the file
-				file << num << ", "; //write the float and a comma to the file 
-			file.close();
+		std::ofstream file;
+		file.open(filename, std::ios::out|std::ios::app); //this is a output file and all operations are output are performed at the end of the file
+		file << num << ", "; //write the float and a comma to the file 
+		file.close();
 	} //close function
 
+	void SingletonCSV::WriteStandardTitleToCSV(std::string filename){
+		std::ofstream file;
+		file.open(filename, std::ios::out|std::ios::app); //this is a output file and all operations are output are performed at the end of the file
+		file << "x-axis" << ", " << "y-axis" << ", " << "z-axis" << ", " << "time" << "\n"; //write the float and a comma to the file 
+		file.close();
+	}//close function
+
+	void SingletonCSV::WritePositionToCSV(std::string filename, std::vector<float> pos, float time){
+		std::ofstream file;
+		file.open(filename, std::ios::out|std::ios::app); //this is a output file and all operations are output are performed at the end of the file
+		file << pos[0] << ","<< pos[1] << "," << pos[2] << "," << time << "\n"; //write the time to the file 
+		file.close();
+	}//close function
+
 	void SingletonCSV::helper_add_nl(std::string filename) {
-				std::ofstream file;
-				file.open(filename, std::ios::out|std::ios::app); //this is a output file and all operations are output are performed at the end of the file
-					file << "\n"; //write a new line character
-				file.close();
+		std::ofstream file;
+		file.open(filename, std::ios::out|std::ios::app); //this is a output file and all operations are output are performed at the end of the file
+		file << "\n"; //write a new line character
+		file.close();
 	}
 
 	void SingletonCSV::CleanFile(std::string filename) {
 		std::ofstream file;
 		file.open(filename, std::ios::out|std::ios::trunc); //truncked the file so everytime we run the simulation it empties it.
-	//	file.clear(); //this function cleans the file everytime that the simulation runs
+		file.clear(); //this function cleans the file everytime that the simulation runs
 		file.close(); //closes the file
 	}
 
 	void SingletonCSV::helper_add_time(std::string filename, float t) {
-				std::ofstream file;
-				file.open(filename, std::ios::out|std::ios::app); //this is a output file and all operations are output are performed at the end of the file
-					file << t << ", "; //write the time to the file 
-				file.close();
-			}//close function
+		std::ofstream file;
+		file.open(filename, std::ios::out|std::ios::app); //this is a output file and all operations are output are performed at the end of the file
+		file << t << "\t"; //write the time to the file 
+		file.close();
+	}//close function
 
 	void SingletonCSV::ClearFiles(std::vector<std::string> filenames) {
 		for (int i = 0; i < filenames.size(); i++) {
@@ -48,7 +62,6 @@ namespace csci3081 {
 	} //close function  
 
 	void SingletonCSV::AddLineToFiles(std::vector<std::string> filenames) {
-
 		for (int i = 0; i < filenames.size(); i++) {
 			helper_add_nl( filenames.at(i) );
 		}//close for loop
