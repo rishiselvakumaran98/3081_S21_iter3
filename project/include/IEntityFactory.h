@@ -23,13 +23,7 @@ namespace csci3081 {
  *
  * This class can be used as the base for all factories  in the delivery system.
 */
-	/*
-class IEntityFactory {
-public:
-virtual IEntity* CreateEntity(const picojson::object& object) = 0;
 
-}; //close class
-	*/
 }//close of the namespace 
 
 #endif 
