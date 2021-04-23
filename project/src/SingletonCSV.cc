@@ -23,14 +23,14 @@ namespace csci3081 {
 	void SingletonCSV::WriteStandardTitleToCSV(std::string filename){
 		std::ofstream file;
 		file.open(filename, std::ios::out|std::ios::app); //this is a output file and all operations are output are performed at the end of the file
-		file << "x-axis" << ", " << "y-axis" << ", " << "z-axis" << ", " << "time" << "\n"; //write the float and a comma to the file 
+		file << "x-axis" << ", " << "y-axis" << ", " << "z-axis" << ", " << "time" << ", "<< "Battery level" << "\n"; //write the float and a comma to the file 
 		file.close();
 	}//close function
 
-	void SingletonCSV::WritePositionToCSV(std::string filename, std::vector<float> pos, float time){
+	void SingletonCSV::WritePositionToCSV(std::string filename, std::vector<float> pos, float time, float battery_level){
 		std::ofstream file;
 		file.open(filename, std::ios::out|std::ios::app); //this is a output file and all operations are output are performed at the end of the file
-		file << pos[0] << ","<< pos[1] << "," << pos[2] << "," << time << "\n"; //write the time to the file 
+		file << pos[0] << ","<< pos[1] << "," << pos[2] << "," << time << "," << battery_level << "\n"; //write the time to the file 
 		file.close();
 	}//close function
 

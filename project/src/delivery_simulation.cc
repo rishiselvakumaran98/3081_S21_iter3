@@ -12,9 +12,8 @@ DeliverySimulation::DeliverySimulation() {
 	AddFactory(new PackageFactory());
 	AddFactory(new CustomerFactory());
 	sing = SingletonCSV::GetSingleton();
-	// files.push_back("file1.csv"); //I added this just to test that the files are being created 
-	sing->CleanFile("smart_drone.csv");
-	sing->WriteStandardTitleToCSV("smart_drone.csv");
+	sing->CleanFile("beeline_drone.csv");
+	sing->WriteStandardTitleToCSV("beeline_drone.csv");
 }
 
 DeliverySimulation::~DeliverySimulation() {}
@@ -109,8 +108,6 @@ const std::vector<IEntity*>& DeliverySimulation::GetEntities() const { return en
 
 void DeliverySimulation::Update(float dt) {
 	ActualScheduleDelivery();
-	// SingletonCSV* sing = SingletonCSV::GetSingleton();
-	// sing->AddTimeToFiles(files, dt_temp);
 	dt_temp += dt;
 	for (int i = 0; i < entities_.size(); i++) {
 		const picojson::object& temp = entities_[i]->GetDetails();
@@ -118,7 +115,8 @@ void DeliverySimulation::Update(float dt) {
 			Drone* nextDrone   = dynamic_cast<Drone*>(entities_[i]);
 			if (nextDrone->DroneAlive()){
 				nextDrone->update_drone_movement(dt);
-				sing->WritePositionToCSV("smart_drone.csv", nextDrone->GetPosition(), dt_temp);
+				float battery = nextDrone->GetBattery()->GetLevel();
+				sing->WritePositionToCSV("beeline_drone.csv", nextDrone->GetPosition(), dt_temp, battery);
 			}
 			else if (drone_rescheduleCount == 0){ // if the drone battery is dead and avoid keep calling the method repetitedly
 				// If the drone is carrying Package drop the package to the ground

@@ -22,7 +22,7 @@ namespace csci3081 {
 
 			void WriteToCSV(std::string filename, float num);
 			void WriteStandardTitleToCSV(std::string filename);
-			void WritePositionToCSV(std::string filename, std::vector<float> pos, float time);
+			void WritePositionToCSV(std::string filename, std::vector<float> pos, float time, float battery_level);
 			void helper_add_nl(std::string filename);
 			void helper_add_time(std::string filename, float time);
 			void CleanFile(std::string filename);

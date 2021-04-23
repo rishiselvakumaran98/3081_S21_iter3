@@ -342,39 +342,39 @@ Then,
       I also created a new UML diagram for our joined group iteration, and included every new feature we added to the project.
 
     \htmlonly
-      <iframe width="500" height="400" frameborder="0" scrolling="no" src="//plotly.com/~RishiBoy98/9.embed"></iframe>
+     <iframe width="600" height="500" frameborder="0" scrolling="no" src="//plotly.com/~RishiBoy98/18.embed"></iframe>    
+    \endhtmlonly
+   
+    \htmlonly
+    <iframe width="600" height="500" frameborder="0" scrolling="no" src="//plotly.com/~RishiBoy98/19.embed"></iframe>
     \endhtmlonly
 
     \htmlonly
-    <iframe width="500" height="400" frameborder="0" scrolling="no" src="//plotly.com/~RishiBoy98/8.embed"></iframe>
+    <iframe width="600" height="500" frameborder="0" scrolling="no" src="//plotly.com/~RishiBoy98/20.embed"></iframe>
     \endhtmlonly
 
     \htmlonly
-    <iframe width="500" height="400" frameborder="0" scrolling="no" src="//plotly.com/~RishiBoy98/10.embed"></iframe>
+    <iframe width="600" height="500" frameborder="0" scrolling="no" src="//plotly.com/~RishiBoy98/22.embed"></iframe>
     \endhtmlonly
 
     \htmlonly
-    <iframe width="500" height="400" frameborder="0" scrolling="no" src="//plotly.com/~RishiBoy98/11.embed"></iframe>
+    <iframe width="600" height="500" frameborder="0" scrolling="no" src="//plotly.com/~RishiBoy98/23.embed"></iframe>
     \endhtmlonly
 
     \htmlonly
-    <iframe width="500" height="400" frameborder="0" scrolling="no" src="//plotly.com/~RishiBoy98/12.embed"></iframe>
+    <iframe width="600" height="500" frameborder="0" scrolling="no" src="//plotly.com/~RishiBoy98/24.embed"></iframe>
     \endhtmlonly
 
     \htmlonly
-    <iframe width="500" height="400" frameborder="0" scrolling="no" src="//plotly.com/~RishiBoy98/13.embed"></iframe>
+    <iframe width="600" height="500" frameborder="0" scrolling="no" src="//plotly.com/~RishiBoy98/26.embed"></iframe>
     \endhtmlonly
 
     \htmlonly
-    <iframe width="500" height="400" frameborder="0" scrolling="no" src="//plotly.com/~RishiBoy98/14.embed"></iframe>
+    <iframe width="600" height="500" frameborder="0" scrolling="no" src="//plotly.com/~RishiBoy98/27.embed"></iframe>
     \endhtmlonly
 
     \htmlonly
-    <iframe width="500" height="400" frameborder="0" scrolling="no" src="//plotly.com/~RishiBoy98/15.embed"></iframe>
-    \endhtmlonly
-
-    \htmlonly
-    <iframe width="500" height="400" frameborder="0" scrolling="no" src="//plotly.com/~RishiBoy98/16.embed"></iframe>
+    <iframe width="600" height="500" frameborder="0" scrolling="no" src="//plotly.com/~RishiBoy98/28.embed"></iframe>
     \endhtmlonly
 
 

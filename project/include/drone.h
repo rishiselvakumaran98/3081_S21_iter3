@@ -171,6 +171,12 @@ namespace csci3081 {
 			void Update_Package();
 
 			/**
+			 * @brief this function returns the battery of the drone
+			 * @return battery source of the drone
+			 */
+			Battery* GetBattery(){ return power_source; }
+
+			/**
 			 * @brief getter for the current index private variable
 			 */
 			int GetCurIndex() { return currentIndex; }
