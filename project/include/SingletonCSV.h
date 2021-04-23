@@ -23,7 +23,9 @@ namespace csci3081 {
 			void WriteToCSV(std::string filename, float num);
 			void WriteStandardTitleToCSV(std::string filename);
 			void WritePositionToCSV(std::string filename, std::vector<float> pos, float time, float battery_level);
+			//this function adds a newline character to a file given the filename
 			void helper_add_nl(std::string filename);
+			//this function adds a time (seconds) to a CSV file given the filename. Used to add times from the delivery simulation onto a CSV file.
 			void helper_add_time(std::string filename, float time);
 			void CleanFile(std::string filename);
 			void ClearFiles(std::vector<std::string> filenames);
