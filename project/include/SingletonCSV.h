@@ -21,7 +21,7 @@ namespace csci3081 {
 			// a SingletonCSV object pointer.
 			static SingletonCSV* csvptr;
 			/**
-			 * @brief private constructor that creats a single instance of the SingletonCSV class.
+			 * @brief private constructor that creates a single instance of the SingletonCSV class.
 			 */
 			SingletonCSV() {
 			}//close constructor
