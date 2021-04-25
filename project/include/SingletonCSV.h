@@ -44,7 +44,18 @@ namespace csci3081 {
 			 * @param[In] num: number of bytes to write to the file.
 			*/
 			void WriteToCSV(std::string filename, float num);
+			/**
+			 * @brief this method helps to write the standard title of the columns into the csv file
+			 * such as "x-axis", "y-axis", "z-axis", "time", "Battery level"
+			 * @param[In] filename: the name of the file to write the data to.
+			*/
 			void WriteStandardTitleToCSV(std::string filename);
+			/**
+			 * @brief this method writes the drone position data, time of simulation, drone battery_level to the CSV file
+			 * @param[In] filename: the name of the file to write the data to.
+			 * @param[In] pos: vector<float> position of the drone
+			 * @param[In] battery_level: The current battery_level of the drone 
+			*/
 			void WritePositionToCSV(std::string filename, std::vector<float> pos, float time, float battery_level);
 			/**
 			 * @brief a helper method to write a newline character into a CSV file. This helper is used to move to the next row of data in a CSV file, ensuring proper CSV formatting of rows.
