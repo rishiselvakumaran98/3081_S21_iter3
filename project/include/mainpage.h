@@ -102,6 +102,8 @@ Then,
 
   (INSERT IMAGE OF IMPLEMENTATION)
   This was how Lucas implemented the Singleton Pattern to access and modify a given CSV file:
+  
+  
   \htmlonly
     <embed src="SingletonCSV.png" width="50%" heigth="50%" href="SingletonCSV.png"></embed>
   \endhtmlonly
@@ -148,7 +150,6 @@ Then,
     Hamza wanted to perform data analysis, and thus Rishi provided Hamza the CSV files from his data collection, and the group agreed to meet once Hamza was finished with his data analysis.
     Hamza finished his data analysis at around 10 PM on Thursday, and the group decided to meet the next day to discuss what the data showed, and talk about documenting the Iteration.
 
-
     Meeting Day 3 - 4/23/2021: 
     This meeting was held in order to understand which route was shown to be the most battery-efficient from both the graphs and the data on distance traveled and to understand why this was the case.
     After looking at all the data as a group, it was clear that the Parabolic Path was the most battery-efficient route for the Drone to travel when picking up packages and delivering them to customers.
@@ -159,47 +160,53 @@ Then,
     Meeting Day 4 - 4/25/2021:
     Once both Shreyas and Hamza were finished writing large parts of the Documentation Section, the group went through the entire project in a meeting to ensure that all the requirements were met.
 
-
-
-    
-
-
     \htmlonly
-     <iframe width="600" height="500" frameborder="0" scrolling="no" src="//plotly.com/~RishiBoy98/18.embed"></iframe>    
+    <iframe width="600" height="500" frameborder="0" scrolling="no" src="//plotly.com/~hamza122000/1.embed"></iframe>    
     \endhtmlonly
    
     \htmlonly
-    <iframe width="600" height="500" frameborder="0" scrolling="no" src="//plotly.com/~RishiBoy98/19.embed"></iframe>
+    <iframe width="600" height="500" frameborder="0" scrolling="no" src="//plotly.com/~hamza122000/3.embed"></iframe>
     \endhtmlonly
 
     \htmlonly
-    <iframe width="600" height="500" frameborder="0" scrolling="no" src="//plotly.com/~RishiBoy98/20.embed"></iframe>
+    <iframe width="600" height="500" frameborder="0" scrolling="no" src="//plotly.com/~hamza122000/5.embed"></iframe>
     \endhtmlonly
 
     \htmlonly
-    <iframe width="600" height="500" frameborder="0" scrolling="no" src="//plotly.com/~RishiBoy98/22.embed"></iframe>
+    <iframe width="600" height="500" frameborder="0" scrolling="no" src="//plotly.com/~hamza122000/7.embed"></iframe>
     \endhtmlonly
 
     \htmlonly
-    <iframe width="600" height="500" frameborder="0" scrolling="no" src="//plotly.com/~RishiBoy98/23.embed"></iframe>
+    <iframe width="600" height="500" frameborder="0" scrolling="no" src="//plotly.com/~hamza122000/9.embed"></iframe>
     \endhtmlonly
 
     \htmlonly
-    <iframe width="600" height="500" frameborder="0" scrolling="no" src="//plotly.com/~RishiBoy98/24.embed"></iframe>
+    <iframe width="600" height="500" frameborder="0" scrolling="no" src="//plotly.com/~hamza122000/11.embed"></iframe>
     \endhtmlonly
 
     \htmlonly
-    <iframe width="600" height="500" frameborder="0" scrolling="no" src="//plotly.com/~RishiBoy98/26.embed"></iframe>
+    <iframe width="600" height="500" frameborder="0" scrolling="no" src="//plotly.com/~hamza122000/13.embed"></iframe>
     \endhtmlonly
 
     \htmlonly
-    <iframe width="600" height="500" frameborder="0" scrolling="no" src="//plotly.com/~RishiBoy98/27.embed"></iframe>
+    <iframe width="600" height="500" frameborder="0" scrolling="no" src="//plotly.com/~hamza122000/15.embed"></iframe>
     \endhtmlonly
 
     \htmlonly
-    <iframe width="600" height="500" frameborder="0" scrolling="no" src="//plotly.com/~RishiBoy98/28.embed"></iframe>
+    <iframe width="600" height="500" frameborder="0" scrolling="no" src="//plotly.com/~hamza122000/17.embed"></iframe>
     \endhtmlonly
 
+    \htmlonly 
+    <iframe width="600" height="500" frameborder="0" scrolling="no" src="//plotly.com/~hamza122000/19.embed"></iframe>
+    * \endhtmlonly
+
+    \htmlonly
+    <iframe width="600" height="500" frameborder="0" scrolling="no" src="//plotly.com/~hamza122000/21.embed"></iframe>
+    \endhtmlonly
+
+    \htmlonly
+    <iframe width="600" height="500" frameborder="0" scrolling="no" src="//plotly.com/~hamza122000/23.embed"></iframe>
+    \endhtmlonly
 
 
 */  
