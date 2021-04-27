@@ -160,6 +160,11 @@ Then,
     Meeting Day 4 - 4/25/2021:
     Once both Shreyas and Hamza were finished writing large parts of the Documentation Section, the group went through the entire project in a meeting to ensure that all the requirements were met.
 
+
+   \section graph_an Data Analysis
+
+   The following are visualizations the data we gathered on the distance the Drone traveled for each of the routes.
+
     \htmlonly
     <iframe width="600" height="500" frameborder="0" scrolling="no" src="//plotly.com/~hamza122000/1.embed"></iframe>    
     \endhtmlonly
@@ -208,6 +213,23 @@ Then,
     <iframe width="600" height="500" frameborder="0" scrolling="no" src="//plotly.com/~hamza122000/23.embed"></iframe>
     \endhtmlonly
 
+    \section final_takeaways Conclusion: Takeaways from Data Analysis
+
+    From the data we gathered on the distance and battery drain of the routes, it is clear that the Parabolic Path is the most battery efficient path for the Drone to travel.
+
+    Since battery drain is calculated through distance traveled, the path requiring the shortest distance will yield the most energy-efficient path.
+    We gathered Drone distance data by summing the total distance traveled using the distance formula. 
+
+    (Insert image of Beeline path)
+    Here is the total distance and battery drain when the Drone travels the Beeline path.
+
+    (Insert image of Smart path)
+    Here is the total distance and battery drain when the Drone travels the Smart path.
+
+    (Insert image of Parabolic path)
+    Here is the total distance and battery drain when the Drone travels the Parabolic path.
+
+    From the data, we can see that the Parabolic path saves the most battery out of all the paths, the Smart path is second in terms of efficiency, and the Beeline path is the least battery-efficient of the three.
 
 */  
 
