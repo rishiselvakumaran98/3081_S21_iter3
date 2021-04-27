@@ -47,7 +47,7 @@ Then,
     
 - Open up Firefox and browse to http://127.0.0.1:8081/
 
-- To run the mainpage.h and view the documentation for th project
+ \section documentation_demo To view the documentation for this project
 (Make sure to have python3 installed on your local machine)
 
 ~~~~~~~~~~~~~~
@@ -145,7 +145,7 @@ Then,
 
     Rishi: Utilizing singletonCSV source files to collect statistics in CSV files for all three routes (beeline, smart, parabolic).
 
-    Hamza: Utilizing Plotly to generate graphs from data collected for CSV files, ensuring proper documentation of header files, assisting in writing the Team Documentation section
+    Hamza: Utilizing Plotly to generate graphs from data collected for CSV files, ensuring proper documentation of header files, assisting in writing the Team Documentation section, creating google tests for singletonCSV
 
     Shreyas: Completing all documentation requirements for the iteration: writing discussions for Singleton Pattern and Team Documentation, as well as writing the Slides for the Presentation
 
@@ -192,6 +192,11 @@ Then,
     <iframe width="600" height="500" frameborder="0" scrolling="no" src="//plotly.com/~hamza122000/23.embed"></iframe>
     \endhtmlonly
 
+    The distance graphs above indicate to us the amount of distance between the points covered by the different drone paths.
+    These distance between the points show us the amount of energy lost by the drone which from the parabolic graph we could
+    see that the distance between the points are smaller and also showcases that this path would cause the drone to travel overall smaller
+    distance to reach its positions within the simulation. 
+
     \section dronemove Drone movement graphs
 
     \htmlonly
@@ -213,25 +218,33 @@ Then,
     Since battery drain is calculated through distance traveled, the path requiring the shortest distance will yield the most energy-efficient path.
     We gathered Drone distance data by summing the total distance traveled using the distance formula. 
 
-    \htmlonly
-    <embed src="Beeline.PNG" width="50%" heigth="50%" href="Beeline.PNG"></embed>
-    \endhtmlonly
-
     Here is the total distance and battery drain when the Drone travels the Beeline path.
 
     \htmlonly
-    <embed src="Smart.PNG" width="50%" heigth="50%" href="Smart.PNG"></embed>
+    <embed src="beeline_distance_py.png" width="50%" heigth="50%" href="beeline_distance_py.png"></embed>
     \endhtmlonly
 
     Here is the total distance and battery drain when the Drone travels the Smart path.
 
     \htmlonly
-    <embed src="Parabolic.PNG" width="50%" heigth="50%" href="Parabolic.PNG"></embed>
+    <embed src="smart_distance_py.png" width="50%" heigth="50%" href="smart_distance_py.png"></embed>
     \endhtmlonly
 
     Here is the total distance and battery drain when the Drone travels the Parabolic path.
 
-    From the data, we can see that the Parabolic path saves the most battery out of all the paths, the Smart path is second in terms of efficiency, and the Beeline path is the least battery-efficient of the three.
+    \htmlonly
+    <embed src="parabolic_distance_py.png" width="50%" heigth="50%" href="parabolic_distance_py.png"></embed>
+    \endhtmlonly
+
+    
+
+    From the graphing data above, we can see that the Parabolic path saves the most amount of battery out of all the paths. 
+    In the parabolic path, we can see that the drone picks up the package at 64.41 secs as compared to the other paths 
+    such as smart path (74.70 secs) and beeline path (82.09 secs) which shows that the parabolic path is more efficient in 
+    allowing the drone to travel to the package faster than the other paths, and also to deliver the package to the customer. 
+    The time taken for the drone to deliver to the customer using the parabolic path is 135 secs as compared to the smart path (157.2 secs)
+    and beeline path (171 secs). Hence from this analysis we could see that the parabolic path is the best path for the drone followed by
+    the Smart path is second in terms of efficiency, and the Beeline path is the least battery-efficient of the three. 
 
 */  
 
