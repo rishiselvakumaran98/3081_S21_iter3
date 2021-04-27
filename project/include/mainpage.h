@@ -100,13 +100,14 @@ Then,
   We wanted to acquire Drone distance and battery drain data for each of the three routes. Thus, we wanted three separate CSV files worth of simulation data. The Singleton Pattern, in this case, was an excellent solution
   as it not only ensured that all of the simulation data from each route/path (Smart, Beeline, Parabolic) could go into its own CSV file, but that the modifications to store the simulation data would be minimal and simple to implement within the delivery_simulation class.
 
-  (INSERT IMAGE OF IMPLEMENTATION)
+  \htmlonly
+    <embed src="SingletonCSV.PNG" width="50%" height="50%" href="SingletonCSV.PNG"></embed>
+  \endhtmlonly
+
   This was how Lucas implemented the Singleton Pattern to access and modify a given CSV file:
   
   
-  \htmlonly
-    <embed src="SingletonCSV.png" width="50%" heigth="50%" href="SingletonCSV.png"></embed>
-  \endhtmlonly
+  
 
   The implementation consists of 10 methods to facilitate the modification of data on a CSV file.
 
@@ -120,7 +121,9 @@ Then,
   
   AddLineToFiles: a generic method to add a given line to a provided vector of files. This method is overloaded to also be able to add a given time to the files.
 
-
+  \htmlonly
+  <embed src="dp2.png" width="50%" height="50%" href="dp2.png"></embed>
+  \endhtmlonly
 
   These methods are used in synergy to populate .csv files with the real-times from the Delivery Simulation we run, while also providing the distances traveled by the Drone for each path in the simulation.
 
@@ -166,53 +169,20 @@ Then,
    The following are visualizations the data we gathered on the distance the Drone traveled for each of the routes.
 
     \htmlonly
-    <iframe width="600" height="500" frameborder="0" scrolling="no" src="//plotly.com/~hamza122000/1.embed"></iframe>    
-    \endhtmlonly
-   
-    \htmlonly
+    <iframe width="600" height="500" frameborder="0" scrolling="no" src="//plotly.com/~hamza122000/1.embed"></iframe>
     <iframe width="600" height="500" frameborder="0" scrolling="no" src="//plotly.com/~hamza122000/3.embed"></iframe>
-    \endhtmlonly
-
-    \htmlonly
     <iframe width="600" height="500" frameborder="0" scrolling="no" src="//plotly.com/~hamza122000/5.embed"></iframe>
-    \endhtmlonly
-
-    \htmlonly
-    <iframe width="600" height="500" frameborder="0" scrolling="no" src="//plotly.com/~hamza122000/7.embed"></iframe>
-    \endhtmlonly
-
-    \htmlonly
-    <iframe width="600" height="500" frameborder="0" scrolling="no" src="//plotly.com/~hamza122000/9.embed"></iframe>
-    \endhtmlonly
-
-    \htmlonly
+    <iframe width="600" height="500" frameborder="0" scrolling="no" src="//plotly.com/~hamza122000/7.embed"></iframe> 
+    <iframe width="600" height="500" frameborder="0" scrolling="no" src="//plotly.com/~hamza122000/9.embed"></iframe> 
     <iframe width="600" height="500" frameborder="0" scrolling="no" src="//plotly.com/~hamza122000/11.embed"></iframe>
-    \endhtmlonly
-
-    \htmlonly
-    <iframe width="600" height="500" frameborder="0" scrolling="no" src="//plotly.com/~hamza122000/13.embed"></iframe>
-    \endhtmlonly
-
-    \htmlonly
+    <iframe width="600" height="500" frameborder="0" scrolling="no" src="//plotly.com/~hamza122000/13.embed"></iframe>  
     <iframe width="600" height="500" frameborder="0" scrolling="no" src="//plotly.com/~hamza122000/15.embed"></iframe>
-    \endhtmlonly
-
-    \htmlonly
     <iframe width="600" height="500" frameborder="0" scrolling="no" src="//plotly.com/~hamza122000/17.embed"></iframe>
-    \endhtmlonly
-
-    \htmlonly 
     <iframe width="600" height="500" frameborder="0" scrolling="no" src="//plotly.com/~hamza122000/19.embed"></iframe>
-    * \endhtmlonly
-
-    \htmlonly
     <iframe width="600" height="500" frameborder="0" scrolling="no" src="//plotly.com/~hamza122000/21.embed"></iframe>
-    \endhtmlonly
-
-    \htmlonly
     <iframe width="600" height="500" frameborder="0" scrolling="no" src="//plotly.com/~hamza122000/23.embed"></iframe>
     \endhtmlonly
-
+   
     \section final_takeaways Conclusion: Takeaways from Data Analysis
 
     From the data we gathered on the distance and battery drain of the routes, it is clear that the Parabolic Path is the most battery efficient path for the Drone to travel.
@@ -220,13 +190,22 @@ Then,
     Since battery drain is calculated through distance traveled, the path requiring the shortest distance will yield the most energy-efficient path.
     We gathered Drone distance data by summing the total distance traveled using the distance formula. 
 
-    (Insert image of Beeline path)
+    \htmlonly
+    <embed src="Beeline.PNG" width="50%" heigth="50%" href="Beeline.PNG"></embed>
+    \endhtmlonly
+
     Here is the total distance and battery drain when the Drone travels the Beeline path.
 
-    (Insert image of Smart path)
+    \htmlonly
+    <embed src="Smart.PNG" width="50%" heigth="50%" href="Smart.PNG"></embed>
+    \endhtmlonly
+
     Here is the total distance and battery drain when the Drone travels the Smart path.
 
-    (Insert image of Parabolic path)
+    \htmlonly
+    <embed src="Parabolic.PNG" width="50%" heigth="50%" href="Parabolic.PNG"></embed>
+    \endhtmlonly
+
     Here is the total distance and battery drain when the Drone travels the Parabolic path.
 
     From the data, we can see that the Parabolic path saves the most battery out of all the paths, the Smart path is second in terms of efficiency, and the Beeline path is the least battery-efficient of the three.

@@ -7,6 +7,7 @@ def main():
     with open(r"3081_s21/repo-iter3-01-06/project/Data_analysis/Paths/beeline_drone.csv") as csvDatafile:
         # open a csv file to write into
         file = open(r"3081_s21/repo-iter3-01-06/project/Data_analysis/Distances/beeline_distance.csv","w") 
+        # /home/linux_en/desktop/repo-iter3-01-06/project/smart_drone.csv
         headers = "distance_x, distance_y, distance_z, distance_between_points, time\n"
         # Write the distance between the points
         file.write(headers)
