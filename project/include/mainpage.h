@@ -47,6 +47,15 @@ Then,
     
 - Open up Firefox and browse to http://127.0.0.1:8081/
 
+- To run the mainpage.h and view the documentation for th project
+(Make sure to have python3 installed on your local machine)
+
+~~~~~~~~~~~~~~
+    # MUST be within project/docs/html directory
+    cd /home/user/repo/project/docs/html
+    python3 -m http.server
+~~~~~~~~~~~~~~
+
 
 ## Getting Started using SSH on CSE Lab machines
 
@@ -182,11 +191,25 @@ Then,
     <iframe width="600" height="500" frameborder="0" scrolling="no" src="//plotly.com/~hamza122000/21.embed"></iframe>
     <iframe width="600" height="500" frameborder="0" scrolling="no" src="//plotly.com/~hamza122000/23.embed"></iframe>
     \endhtmlonly
+
+    \section dronemove Drone movement graphs
+
+    \htmlonly
+    <iframe width="600" height="500" frameborder="0" scrolling="no" src="//plotly.com/~RishiBoy98/18.embed"></iframe>    
+    <iframe width="600" height="500" frameborder="0" scrolling="no" src="//plotly.com/~RishiBoy98/19.embed"></iframe>
+    <iframe width="600" height="500" frameborder="0" scrolling="no" src="//plotly.com/~RishiBoy98/20.embed"></iframe>
+    <iframe width="600" height="500" frameborder="0" scrolling="no" src="//plotly.com/~RishiBoy98/22.embed"></iframe>
+    <iframe width="600" height="500" frameborder="0" scrolling="no" src="//plotly.com/~RishiBoy98/23.embed"></iframe>
+    <iframe width="600" height="500" frameborder="0" scrolling="no" src="//plotly.com/~RishiBoy98/24.embed"></iframe>
+    <iframe width="600" height="500" frameborder="0" scrolling="no" src="//plotly.com/~RishiBoy98/26.embed"></iframe>
+    <iframe width="600" height="500" frameborder="0" scrolling="no" src="//plotly.com/~RishiBoy98/27.embed"></iframe>
+    <iframe width="600" height="500" frameborder="0" scrolling="no" src="//plotly.com/~RishiBoy98/28.embed"></iframe>
+    \endhtmlonly
    
     \section final_takeaways Conclusion: Takeaways from Data Analysis
 
     From the data we gathered on the distance and battery drain of the routes, it is clear that the Parabolic Path is the most battery efficient path for the Drone to travel.
-
+    The parabolic path rom the graphs above show that they 
     Since battery drain is calculated through distance traveled, the path requiring the shortest distance will yield the most energy-efficient path.
     We gathered Drone distance data by summing the total distance traveled using the distance formula. 
 
