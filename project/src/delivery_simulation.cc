@@ -57,9 +57,11 @@ void DeliverySimulation::ScheduleDelivery(IEntity* package, IEntity* dest) {
 }//close function
 
 void DeliverySimulation::ActualScheduleDelivery(){
+	// calls on the Schedule_Delivery_Entities method in ScheduleDelivery to schedule delivery for entities
 	deliverer->Schedule_Delivery_Entities(entities_, packages_array, customer_array, graph_);
 }
 void DeliverySimulation::RescheduleDelivery(Package* pack){
+	// calls on the RescheduleDelivery_helper method in ScheduleDelivery to reschedule delivery
 	deliverer->RescheduleDelivery_helper(pack, packages_array, customer_array);
 	ActualScheduleDelivery();
 }
