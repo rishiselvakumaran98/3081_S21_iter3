@@ -6,7 +6,8 @@ namespace csci3081 {
 		Vector3D vo (source);
 		Vector3D ve (destination);
 		Vector3D vm = ((vo+ve)*0.5);
-		double t = 30.0;
+		double t = 30.0; // we take t as 30 steps for a smooth parabolic movement to the final destination of the drone
+		// We use the equations provided in lab 14 for the parabolic path movement lab as a reference to form the following computations:
 		Vector3D vt = ((ve-vo)*(1.0/t));
 		Vector3D v;
 		std::vector<std::vector<float>> path;

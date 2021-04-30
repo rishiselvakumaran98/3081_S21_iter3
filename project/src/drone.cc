@@ -4,7 +4,7 @@ namespace csci3081 {
 
 
 void Drone::Pick_order() {
-	package_currently_delivering->OnPickUp();
+	package_currently_delivering->OnPickUp(); // Set the observer pattern to show that package is picked
 	currentIndex = 0;
 	has_picked_up = true;
 	currentRout = pack_to_customer;
@@ -12,9 +12,9 @@ void Drone::Pick_order() {
 }//end of function
 
 void Drone::Drop_order() {
-	package_currently_delivering->OnDropOff();
+	package_currently_delivering->OnDropOff(); // Set the observer pattern to show that package is picked
 	has_picked_up = false;
-	package_currently_delivering->SetPosition(Vector3D(0, -1000, 0));
+	package_currently_delivering->SetPosition(Vector3D(0, -1000, 0)); // Set the package position all the way down once it is delivered
 	package_currently_delivering = nullptr;
 	currentIndex = 0;
 	distance_traveled = 0;
@@ -50,7 +50,7 @@ bool Drone::DroneAlive(){
 	if (power_source->GetLevel() <= 0){
 		if (dead_count == 0){ 
 			OnIdle(); // this is done to make sure that observer is notified once of the drone being dead
-		}dead_count++;
+		}dead_count++; // This variable is incremented to stop the OnIdle from being called multiple times
 		has_delivered_pack = false;
 		return false;
 	}
@@ -105,11 +105,11 @@ void Drone::Update_Package() {
 void Drone::Scheduled_drone(IEntity* package, IEntity* dest, const IGraph* graph_) {
 	if (GetPackage() == nullptr) {
 		strategy->SetGraph(graph_);
-		SetDroneToPack(strategy->GetPath(GetPosition(),  package->GetPosition()));
-		SetPackage(dynamic_cast<Package*>(package));
+		SetDroneToPack(strategy->GetPath(GetPosition(),  package->GetPosition())); // We set the direction path to the package 
+		SetPackage(dynamic_cast<Package*>(package)); // need to set the dynamically cast the package to set it to the drone
 		SetCurrRout("pack");
-		SetPackToCustomer ( strategy->GetPath(package->GetPosition(), dest->GetPosition() ));
-		Package* pack = dynamic_cast<Package*>(package);
+		SetPackToCustomer ( strategy->GetPath(package->GetPosition(), dest->GetPosition() )); // We set the direction path to the customer 
+		Package* pack = dynamic_cast<Package*>(package); // need to set the dynamically cast the package to set it to the Customer
 		pack->SetCustomer(dynamic_cast<Customer*>(dest));
 		package_currently_delivering->OnSchedule();
 		OnMove();
@@ -118,33 +118,32 @@ void Drone::Scheduled_drone(IEntity* package, IEntity* dest, const IGraph* graph
 
 void Drone::update_drone_movement(float dt) {
 	if (GetPackage() != nullptr && GetPackage() != NULL) {
-		if (Within_range(GetTargetPosition())) {
+		if (Within_range(GetTargetPosition())) { // if the drone is within a certain range for performing and action.
 			if (IncrTarget()) {
-				if (has_picked_up_getter()) {
-					Drop_order();
-					OnIdle();
+				if (has_picked_up_getter()) { // if the drone has the package picked
+					Drop_order(); // then drop the package to the Customer
+					OnIdle(); // and let the drone notify observer that it went Idle mode
 				}
 				else {
-					OnIdle();
-					Pick_order();
-					OnMove();
+					OnIdle(); // initially notify observer that drone went Idle mode
+					Pick_order(); // then pick up the order
+					OnMove(); // and notify observer that drone is scheduled to move 
 				}
-			} //close if statement 4
-		} //close within range
+			}
+		}
 		else { //we know we have a package 
 			Vector3D v = GetTargetPosition()-GetPosition();
 			v.Normalize();
-			v = v*dt*GetSpeed();
-			power_source->change_level(dt);
-			// std::cout << power_source->GetLevel() << std::endl;
+			v = v*dt*GetSpeed(); // we calculate the displacement to travel
+			power_source->change_level(dt); // we deplete the drone battery level while it is moving
 			if (v.Magnitude() > ( Vector3D (GetPosition() )- GetTargetPosition() ).Magnitude() ) {
-				this->SetPosition(GetTargetPosition());
-			}//close if for overshooting the target 
+				this->SetPosition(GetTargetPosition()); // we set the new position listed in the paths vector to the drone as its next position to get to
+			} 
 			else {						
-				Vector3D positionToMove = Vector3D ( GetPosition())+v;
+				Vector3D positionToMove = Vector3D ( GetPosition())+v; // we then set the next calculated position for the drone to move 
 				this->SetPosition(positionToMove);
-			} //close else for overshooting target
-			Update_Package();
+			} 
+			Update_Package(); // we update the package position and its observer status while running the simulation
 		} //close else of the within range if
 	} //close get package check
 }//close function 

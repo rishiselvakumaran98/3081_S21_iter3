@@ -26,11 +26,10 @@ namespace csci3081 {
    */
    class PackageFactory : public IEntityFactory {
       public:
-
-      /**
-       * @brief override function from IEntityFactory to create packages.
-       * @param object the picojson to be analysed and possibly made into a package.
-       */
+         /**
+          * @brief override function from IEntityFactory to create packages.
+          * @param object the picojson to be analysed and possibly made into a package.
+          */
          IEntity* CreateEntity(const picojson::object& object);
    }; //close class
 }//close of the namespace 

@@ -48,6 +48,7 @@ Then,
 - Open up Firefox and browse to http://127.0.0.1:8081/
 
  \section documentation_demo To view the documentation for this project
+
 (Make sure to have python3 installed on your local machine)
 
 ~~~~~~~~~~~~~~
@@ -98,37 +99,60 @@ Then,
  - Open up Firefox and browse to http://127.0.0.1:8081/ 
 
 
-  \section feature_singletoncsv Singleton Pattern Applied to Collect Route Data
+  \section feature_singletoncsv Singleton Pattern feature Applied to Collect drone Route Data
 
   We wanted to analyze the efficiency of the three routes that we implemented in Iteration 2: the Smart Path, the Beeline Path, and the Parabolic Path. 
-  In order to collect the data for this analysis, we implemented a CSV file writer class named SingletonCSV that, appropriately, used the Singleton Pattern in its design.
+  In order to collect the data for this analysis, we implemented a CSV file writer class named `SingletonCSV` that, appropriately, used the Singleton Pattern in its design.
 
-  The Singleton pattern is a design pattern based around a class that makes sure that only one instance of iself and grants programs simple access to the instance. 
-
+  The Singleton pattern is a design pattern based around a class that makes sure that only one instance of itself exists and it grants programs simple access to the instance. 
+  The singleton pattern includes a private constructor and a static getter method for getting its SingletonCSV* pointer.
   In our specific case, we wanted to ensure that the CSV files were only able to be modified by the functions within the singletonCSV class, and that there was only one CSV file for a simulation. 
   We wanted to acquire Drone distance and battery drain data for each of the three routes. Thus, we wanted three separate CSV files worth of simulation data. The Singleton Pattern, in this case, was an excellent solution
-  as it not only ensured that all of the simulation data from each route/path (Smart, Beeline, Parabolic) could go into its own CSV file, but that the modifications to store the simulation data would be minimal and simple to implement within the delivery_simulation class.
+  as it not only ensured that all of the simulation data from each route/path (Smart, Beeline, Parabolic) could go into its own CSV file, but that the modifications to store the simulation data would be minimal 
+  and simple to implement within the delivery_simulation class.
+  
+  \section simulationscenes Scenes that were chosen to run for testing the SingletonCSV pattern:
+
+    The following scenes were used for testing the SingletonCSV pattern:
+    - smart_drone.json
+    - beeline_drone.json 
+    - parabolic_drone.json 
+
+    To run the specific scenes for the project:
+~~~~~~~~~~~~~~
+    # MUST be within project/ directory <scenes/<scene>.json - optional (default umn.json)>
+    ./bin/run.sh scenes/<scenes_listed_above_1_by_1>
+~~~~~~~~~~~~~~
+
+   \section singletonPatternImplementation Singleton Pattern implementation for Iteration 3:
+
+    This was how Lucas implemented the Singleton Pattern to access and modify a given CSV file:
 
   \htmlonly
     <embed src="SingletonCSV.PNG" width="50%" height="50%" href="SingletonCSV.PNG"></embed>
   \endhtmlonly
 
-  This was how Lucas implemented the Singleton Pattern to access and modify a given CSV file:
-  
-  
-  
-
   The implementation consists of 10 methods to facilitate the modification of data on a CSV file.
 
-  helper_add_nl: a helper method to write a newline character into a CSV file. This helper is used to move to the next row of data in a CSV file, ensuring proper CSV formatting of rows.
+  `GetSingleton()`: This function checks if csvptr is null, if it is creates a new instance of singletonCSV and assigns it to csvptr. If it is not null, it returns csvptr.
 
-  helper_add_time: a helper method to add time in seconds to a CSV file given the filename. This helper is used within delivery_simulation.cc to add times from the simulation onto a .csv file for data analysis.
+  `WriteToCSV()`: This method takes in the filename and a float number to write to the file. This method was used as a tester to check if float numbers could be added to a csv file 
+  
+  `WriteStandardTitleToCSV()`: This method helps to write the standard title of the columns into the csv file such as "x-axis", "y-axis", "z-axis", "time", "Battery level"
 
-  CleanFile: a method to empty the contents of a CSV file given the filename. This method is used if we need to reuse a CSV file for new data analysis or re-run a program that uses a constant csv file for data
+  `WritePositionToCSV()`: This method takes in the drone position data, time of simulation, drone battery_level and writes it to the CSV file
+
+  `helper_add_nl()`: A helper method to write a newline character into a CSV file. This helper is used to move to the next row of data in a CSV file, ensuring proper CSV formatting of rows.
+
+  `helper_add_time()`: A helper method to add time in seconds to a CSV file given the filename. This helper is used within delivery_simulation.cc to add times from the simulation onto a .csv file for data analysis.
+
+  `CleanFile()`: A method to empty the contents of a CSV file given the filename. This method is used if we need to reuse a CSV file for new data analysis or re-run a program that uses a constant csv file for data
   
-  ClearFiles: a multi-file version of the CleanFile method that essentially runs CleanFile on every file present in a given vector of .csv files.
+  `ClearFiles()`: A multi-file version of the CleanFile method that essentially runs CleanFile on every file present in a given vector of .csv files.
   
-  AddLineToFiles: a generic method to add a given line to a provided vector of files. This method is overloaded to also be able to add a given time to the files.
+  `AddLineToFiles()`: A generic method to add a given line to a provided vector of files. This method is overloaded to also be able to add a given time to the files.
+
+  `AddTimeToFiles()`: Method to add given time intervals to a provided vector of files. This method updates multiple files with the same time given for analysis on simulations with multiple entities
 
   \htmlonly
   <embed src="dp2.png" width="50%" height="50%" href="dp2.png"></embed>
@@ -175,7 +199,7 @@ Then,
 
    \section graph_an Data Analysis
 
-   The following are visualizations the data we gathered on the distance the Drone traveled for each of the routes.
+   The following are the visualizations from the data we gathered on the distance the Drone traveled for each of the routes.
 
     \htmlonly
     <iframe width="600" height="500" frameborder="0" scrolling="no" src="//plotly.com/~hamza122000/1.embed"></iframe>
@@ -193,9 +217,10 @@ Then,
     \endhtmlonly
 
     The distance graphs above indicate to us the amount of distance between the points covered by the different drone paths.
-    These distance between the points show us the amount of energy lost by the drone which from the parabolic graph we could
-    see that the distance between the points are smaller and also showcases that this path would cause the drone to travel overall smaller
-    distance to reach its positions within the simulation. 
+    These distance between the points show us the amount of energy lost by the drone which from the parabolic graph above (for x,y,z axis) we could
+    see that the distance between the points are much smaller than the other paths such as Beeline, and Smart. This also showcases that the Parabolic path 
+    would cause the drone to travel overall smaller distance to reach its positions within the simulation, which would help the drone conserver more battery,
+    while delivering multiple packages to customers.
 
     \section dronemove Drone movement graphs
 
@@ -213,8 +238,8 @@ Then,
    
     \section final_takeaways Conclusion: Takeaways from Data Analysis
 
-    From the data we gathered on the distance and battery drain of the routes, it is clear that the Parabolic Path is the most battery efficient path for the Drone to travel.
-    The parabolic path rom the graphs above show that they 
+    From the data we gathered on the distance and battery drain of the routes, it is clear that the Parabolic Path is the most battery efficient path for the Drone to travel,
+    as the drone that travelled through the parabolic path took the least amount of time (135.4 secs). 
     Since battery drain is calculated through distance traveled, the path requiring the shortest distance will yield the most energy-efficient path.
     We gathered Drone distance data by summing the total distance traveled using the distance formula. 
 
