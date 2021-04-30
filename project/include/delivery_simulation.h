@@ -16,7 +16,7 @@
 #include "Customer.h"
 #include "json_helper.h"
 #include "entity_base.h"
-#include "Vector2D.h"
+// #include "Vector2D.h"
 #include "CompositeFactory.h"
 #include "DroneFactory.h"
 #include "PackageFactory.h"
@@ -25,6 +25,7 @@
 #include "IEntityFactory.h"
 #include "ISubject.h"
 #include "SingletonCSV.h"
+#include "ScheduleDelivery.h"
 
 namespace csci3081 {
 
@@ -172,6 +173,7 @@ class DeliverySimulation : public IDeliverySystem {
   std::vector<std::string> files;
   float dt_temp = 0;
   SingletonCSV* sing;
+  ScheduleDelivery_Helper *deliverer;
 };
 
 }  // namespace csci3081
