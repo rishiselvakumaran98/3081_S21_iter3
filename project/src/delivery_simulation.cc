@@ -60,12 +60,7 @@ void DeliverySimulation::ActualScheduleDelivery(){
 	deliverer->Schedule_Delivery_Entities(entities_, packages_array, customer_array, graph_);
 }
 void DeliverySimulation::RescheduleDelivery(Package* pack){
-	std::cout << "Package Rescheduled" << std::endl;
-	pack->OnSchedule();
-	IEntity *cust = dynamic_cast<IEntity*>(pack->GetRecipient());
-	IEntity *entity_pack = dynamic_cast<IEntity*>(pack);
-	packages_array.push_back(entity_pack);
-	customer_array.push_back(cust);
+	deliverer->RescheduleDelivery_helper(pack, packages_array, customer_array);
 	ActualScheduleDelivery();
 }
 
@@ -111,7 +106,6 @@ void DeliverySimulation::Update(float dt) {
 			}
 		} //close type check for entity
 	} //close for loop
-	sing->AddLineToFiles(files);
 } //end function
 
 // DO NOT MODIFY THE FOLLOWING UNLESS YOU REALLY KNOW WHAT YOU ARE DOING

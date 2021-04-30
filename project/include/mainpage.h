@@ -9,6 +9,16 @@
 * \section Introduction
 ## Welcome to the CSCI 3081 Drone Simulation Project!
 
+    \subsection documentation_demo To view the documentation for this project
+
+    (Make sure to have python3 installed on your local machine)
+
+~~~~~~~~~~~~~~
+    # MUST be within project/docs/html directory
+    cd /home/user/repo/project/docs/html
+    python3 -m http.server
+~~~~~~~~~~~~~~
+
 To build and run the project make sure to have the right environment.
 *****************************
 Some of the common environments to run the projects include Docker, Linux platforms, CSE Lab Machines or VOLE/VOLE 3D
@@ -47,15 +57,7 @@ Then,
     
 - Open up Firefox and browse to http://127.0.0.1:8081/
 
- \section documentation_demo To view the documentation for this project
-
-(Make sure to have python3 installed on your local machine)
-
-~~~~~~~~~~~~~~
-    # MUST be within project/docs/html directory
-    cd /home/user/repo/project/docs/html
-    python3 -m http.server
-~~~~~~~~~~~~~~
+ 
 
 
 ## Getting Started using SSH on CSE Lab machines

@@ -1,6 +1,15 @@
 #include "ScheduleDelivery.h"
 
 namespace csci3081 {
+    void ScheduleDelivery_Helper::RescheduleDelivery_helper(Package *pack, std::vector<IEntity*>& packages_array, std::vector<IEntity*>& customer_array){
+        std::cout << "Package Rescheduled" << std::endl;
+        pack->OnSchedule();
+        IEntity *cust = dynamic_cast<IEntity*>(pack->GetRecipient());
+        IEntity *entity_pack = dynamic_cast<IEntity*>(pack);
+        packages_array.push_back(entity_pack);
+        customer_array.push_back(cust);
+        
+    }
     void ScheduleDelivery_Helper::Schedule_Delivery_Entities(std::vector<IEntity*>& entities_, std::vector<IEntity*>& packages_array, std::vector<IEntity*>& customer_array, const IGraph* graph_){
         for (int i = 0; i < entities_.size(); i++) {
             const picojson::object& temp = entities_[i]->GetDetails();

@@ -20,6 +20,7 @@
 namespace csci3081 {
     class ScheduleDelivery_Helper{
         public:
+            void RescheduleDelivery_helper(Package *pack, std::vector<IEntity*>& packages_array, std::vector<IEntity*>& customer_array);
             void Schedule_Delivery_Entities(std::vector<IEntity*>& entities_, 
             std::vector<IEntity*>& packages_array, std::vector<IEntity*>& customer_array, const IGraph* graph_);
     };
