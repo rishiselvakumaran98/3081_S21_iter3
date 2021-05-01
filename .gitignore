@@ -2,3 +2,4 @@
 .dependencies
 .vscode
 .idea
+*.csv
