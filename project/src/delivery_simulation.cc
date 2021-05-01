@@ -3,6 +3,7 @@
 #include "json_helper.h"
 #include "drone.h"
 
+
 namespace csci3081 {
 
 DeliverySimulation::DeliverySimulation() {
@@ -11,9 +12,9 @@ DeliverySimulation::DeliverySimulation() {
 	AddFactory(new RobotFactory());
 	AddFactory(new PackageFactory());
 	AddFactory(new CustomerFactory());
-	SingletonCSV* sing = SingletonCSV::GetSingleton();
-		files.push_back("file1.csv"); //I added this just to test that the files are being created 
-	sing->ClearFiles(files);
+	sing = SingletonCSV::GetSingleton();
+	sing->CleanFile("beeline_drone.csv");
+	sing->WriteStandardTitleToCSV("beeline_drone.csv");
 }
 
 DeliverySimulation::~DeliverySimulation() {}
@@ -56,43 +57,12 @@ void DeliverySimulation::ScheduleDelivery(IEntity* package, IEntity* dest) {
 }//close function
 
 void DeliverySimulation::ActualScheduleDelivery(){
-	for (int i = 0; i < entities_.size(); i++) {
-		const picojson::object& temp = entities_[i]->GetDetails();
-		if (JsonHelper::GetString(temp, "type") == "drone") {
-			Drone* nextDrone   = dynamic_cast<Drone*>(entities_[i]);
-			bool pass_statement = nextDrone->GetPackage() == nullptr 
-				&& nextDrone->DroneAlive()
-				&& (packages_array[0]->GetPosition()[1] != -1000 && packages_array[0]->GetPosition()[1] != 264);
-	
-			if (pass_statement){
-				nextDrone->Scheduled_drone(packages_array[0], customer_array[0], graph_);
-				packages_array.erase(std::remove(packages_array.begin(), packages_array.end(), packages_array[0]), packages_array.end());
-				customer_array.erase(std::remove(customer_array.begin(), customer_array.end(), customer_array[0]), customer_array.end());
-			} //close if statement avoiding resceduling multiple times
-				
-		}//close if statement for Drone
-		if (JsonHelper::GetString(temp, "type") == "robot") {
-			Robot* nextRobot   = dynamic_cast<Robot*>(entities_[i]);
-			bool pass_statement = nextRobot->GetPackage() == nullptr 
-			&& nextRobot->RobotAlive()
-			&& (packages_array[0]->GetPosition()[1] != -1000 && packages_array[0]->GetPosition()[1] != 264);
-
-			if (pass_statement){
-				nextRobot->Scheduled_Robot(packages_array[0], customer_array[0], graph_);
-				std::cout << "size of package array from schedule_robot: " << packages_array.size() << std::endl;
-				packages_array.erase(std::remove(packages_array.begin(), packages_array.end(), packages_array[0]), packages_array.end());
-				customer_array.erase(std::remove(customer_array.begin(), customer_array.end(), customer_array[0]), customer_array.end());
-			}//close if statement avoiding resceduling multiple times
-		} //close if statement for Robot
-	}//close for loop
+	// calls on the Schedule_Delivery_Entities method in ScheduleDelivery to schedule delivery for entities
+	deliverer->Schedule_Delivery_Entities(entities_, packages_array, customer_array, graph_);
 }
 void DeliverySimulation::RescheduleDelivery(Package* pack){
-	std::cout << "Package Rescheduled" << std::endl;
-	pack->OnSchedule();
-	IEntity *cust = dynamic_cast<IEntity*>(pack->GetRecipient());
-	IEntity *entity_pack = dynamic_cast<IEntity*>(pack);
-	packages_array.push_back(entity_pack);
-	customer_array.push_back(cust);
+	// calls on the RescheduleDelivery_helper method in ScheduleDelivery to reschedule delivery
+	deliverer->RescheduleDelivery_helper(pack, packages_array, customer_array);
 	ActualScheduleDelivery();
 }
 
@@ -108,14 +78,15 @@ const std::vector<IEntity*>& DeliverySimulation::GetEntities() const { return en
 
 void DeliverySimulation::Update(float dt) {
 	ActualScheduleDelivery();
-	SingletonCSV* sing = SingletonCSV::GetSingleton();
-	sing->AddTimeToFiles(files, dt_temp);
+	dt_temp += dt;
 	for (int i = 0; i < entities_.size(); i++) {
 		const picojson::object& temp = entities_[i]->GetDetails();
 		if (JsonHelper::GetString(temp, "type") == "drone") {
 			Drone* nextDrone   = dynamic_cast<Drone*>(entities_[i]);
 			if (nextDrone->DroneAlive()){
 				nextDrone->update_drone_movement(dt);
+				float battery = nextDrone->GetBattery()->GetLevel();
+				sing->WritePositionToCSV("beeline_drone.csv", nextDrone->GetPosition(), dt_temp, battery);
 			}
 			else if (drone_rescheduleCount == 0){ // if the drone battery is dead and avoid keep calling the method repetitedly
 				// If the drone is carrying Package drop the package to the ground
@@ -137,8 +108,6 @@ void DeliverySimulation::Update(float dt) {
 			}
 		} //close type check for entity
 	} //close for loop
-	dt_temp+=dt;
-	sing->AddLineToFiles(files);
 } //end function
 
 // DO NOT MODIFY THE FOLLOWING UNLESS YOU REALLY KNOW WHAT YOU ARE DOING

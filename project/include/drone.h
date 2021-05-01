@@ -171,6 +171,12 @@ namespace csci3081 {
 			void Update_Package();
 
 			/**
+			 * @brief this function returns the battery of the drone
+			 * @return battery source of the drone
+			 */
+			Battery* GetBattery(){ return power_source; }
+
+			/**
 			 * @brief getter for the current index private variable
 			 */
 			int GetCurIndex() { return currentIndex; }
@@ -229,20 +235,20 @@ namespace csci3081 {
 			 * @param details The picojson object that consists of the details of the drone entity
 			 */
 			void helper_Create_Strategy(const picojson::object details);
-	private:
-		bool has_picked_up;
-		std::vector<std::vector<float>> currentRout;
-		int currentIndex = 0;
-		Battery* power_source;
-		float speed;
-		float distance_traveled;
-		std::vector<Package*> packages_delivered;
-		std::vector<std::vector<float>>drone_to_pack;
-		std::vector<std::vector<float>>pack_to_customer;
-		Package* package_currently_delivering;
-		IStrategy* strategy;
-		bool has_delivered_pack;
-		int dead_count = 0;
+		private:
+			bool has_picked_up;
+			std::vector<std::vector<float>> currentRout;
+			int currentIndex = 0;
+			Battery* power_source;
+			float speed;
+			float distance_traveled;
+			std::vector<Package*> packages_delivered;
+			std::vector<std::vector<float>>drone_to_pack;
+			std::vector<std::vector<float>>pack_to_customer;
+			Package* package_currently_delivering;
+			IStrategy* strategy;
+			bool has_delivered_pack;
+			int dead_count = 0;
 	}; //end of drone class
 
 }

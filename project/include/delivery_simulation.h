@@ -16,7 +16,7 @@
 #include "Customer.h"
 #include "json_helper.h"
 #include "entity_base.h"
-#include "Vector2D.h"
+// #include "Vector2D.h"
 #include "CompositeFactory.h"
 #include "DroneFactory.h"
 #include "PackageFactory.h"
@@ -25,6 +25,7 @@
 #include "IEntityFactory.h"
 #include "ISubject.h"
 #include "SingletonCSV.h"
+#include "ScheduleDelivery.h"
 
 namespace csci3081 {
 
@@ -163,17 +164,16 @@ class DeliverySimulation : public IDeliverySystem {
   std::vector<IEntity*> packages_array;
   std::vector<IEntity*> customer_array;
   const IGraph* graph_;
-    CompositeFactory comp_fact;
+  CompositeFactory comp_fact;
 	int Id = -1;
-//	  DroneFactory dFact;
-//	    CustomerFactory cFact;
-//		  PackageFactory pFact;
 	ISubject isub;
   int schedule_count = 0;
   int drone_rescheduleCount = 0;
   int robot_rescheduleCount = 0;
   std::vector<std::string> files;
   float dt_temp = 0;
+  SingletonCSV* sing;
+  ScheduleDelivery_Helper *deliverer;
 };
 
 }  // namespace csci3081
