@@ -42,7 +42,7 @@ namespace csci3081 {
              * @param[in] graph_ The variable responsible for the generating the smart algorithm from the facade to give array of directions to the drone
 			 */
             void Schedule_Delivery_Entities(std::vector<IEntity*>& entities_, 
-            std::vector<IEntity*>& packages_array, std::vector<IEntity*>& customer_array, const IGraph* graph_);
+                    std::vector<IEntity*>& packages_array, std::vector<IEntity*>& customer_array, const IGraph* graph_);
     };
 }
 
