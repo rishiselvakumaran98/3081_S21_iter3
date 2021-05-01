@@ -9,7 +9,7 @@
 * \section Introduction
 ## Welcome to the CSCI 3081 Drone Simulation Project!
 
-    \subsection documentation_demo To view the documentation for this project
+ \subsection documentation_demo To view the documentation for this project
 
     (Make sure to have python3 installed on your local machine)
 
@@ -155,6 +155,20 @@ Then,
   `AddLineToFiles()`: A generic method to add a given line to a provided vector of files. This method is overloaded to also be able to add a given time to the files.
 
   `AddTimeToFiles()`: Method to add given time intervals to a provided vector of files. This method updates multiple files with the same time given for analysis on simulations with multiple entities
+
+  After implemnting the SingletoCSV Pattern, we utilized it within the deliverysimulation class to analyze the drone position for each individual simulation ran on 
+  - Beeline_drone.json 
+  - smart_drone.json 
+  - parabolic_drone.json
+
+  For the each of the simulation analysis, we changed the filename according to the name of the scene that we analyzed which in this case translates to 3 CSV files generated called:
+
+  - Beeline_drone.csv 
+  - smart_drone.csv 
+  - parabolic_drone.csv 
+
+  We then used these csv files above for analyzing the drone movements and distinguishing which path would be the most efficient in helping the drone conserve battery life
+  while delivering the package to the customers. 
 
   \htmlonly
   <embed src="dp2.png" width="50%" height="50%" href="dp2.png"></embed>

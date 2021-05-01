@@ -15,6 +15,7 @@ namespace csci3081 {
             const picojson::object& temp = entities_[i]->GetDetails();
             if (JsonHelper::GetString(temp, "type") == "drone") {
                 Drone* nextDrone   = dynamic_cast<Drone*>(entities_[i]);
+                // these series of if statements check for the drone's condition and also its package position and makes sure to stop it(return false) after it has delivered the packages
                 bool pass_statement = nextDrone->GetPackage() == nullptr 
                     && nextDrone->DroneAlive()
                     && (packages_array[0]->GetPosition()[1] != -1000 && packages_array[0]->GetPosition()[1] != 264);
@@ -31,7 +32,7 @@ namespace csci3081 {
                 bool pass_statement = nextRobot->GetPackage() == nullptr 
                 && nextRobot->RobotAlive()
                 && (packages_array[0]->GetPosition()[1] != -1000 && packages_array[0]->GetPosition()[1] != 264);
-
+                // these series of if statements check for the robot's condition and also its package position and makes sure to stop it(return false) after it has delivered the packages
                 if (pass_statement){
                     nextRobot->Scheduled_Robot(packages_array[0], customer_array[0], graph_);
                     std::cout << "size of package array from schedule_robot: " << packages_array.size() << std::endl;
